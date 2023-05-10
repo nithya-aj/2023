@@ -1,7 +1,14 @@
+$breakpoint-extra-small: 300px;
 $breakpoint-small: 567px;
 $breakpoint-medium: 768px;
 $breakpoint-large: 992px;
 $breakpoint-extra-large: 1200px;
+
+@mixin extra-small {
+    @media (min-width: #{$breakpoint-extra-small}) {
+        @content;
+    }
+}
 
 @mixin small {
     @media (min-width: #{$breakpoint-small}) {
@@ -225,11 +232,14 @@ body {
                     }
 
                     @include medium {
-                        width: 10rem;
+                        width: 12rem;
                     }
 
                     @include small {
                         width: 10rem;
+                    }
+                    @include extra-small {
+                        width: 9rem;
                     }
                 }
             }
@@ -357,26 +367,26 @@ body {
             }
         }
 
-        // @include small {
-        //     padding: 0px;
+        @include extra-small {
+            padding: 0px;
 
-        //     .message {
-        //         gap: 8px;
+            .message {
+                gap: 8px;
 
-        //         .messageInfo {
-        //             img {
-        //                 width: 36px;
-        //                 height: 36px;
-        //             }
-        //         }
+                .messageInfo {
+                    img {
+                        width: 36px;
+                        height: 36px;
+                    }
+                }
 
-        //         .messageContent {
-        //             img {
-        //                 width: 40%;
-        //             }
-        //         }
-        //     }
-        // }
+                .messageContent {
+                    img {
+                        width: 40%;
+                    }
+                }
+            }
+        }
     }
 
     .input {
@@ -428,9 +438,5 @@ body {
                 }
             }
         }
-
-        // @include small {
-        //     width: 94%;
-        // }
     }
 }
