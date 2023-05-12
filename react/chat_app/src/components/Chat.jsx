@@ -2,7 +2,7 @@ import React from 'react'
 import videoCall from '../images/videoCall.svg'
 import addUser from '../images/addUser.svg'
 import settings from '../images/settings.svg'
-import burgerMenu from '../images/burger-menu.svg'
+import arrow from '../images/arrow-back.svg'
 import Messages from './Messages'
 import Input from './Input'
 
@@ -11,7 +11,7 @@ const Chat = () => {
     <div className='chat'>
       <div className="chatInfo">
         <div className='rightMenu'>
-          <img src={burgerMenu} alt="" />
+          <img src={arrow} alt="" />
           <span>Jane</span>
         </div>
         <div className="chatIcons">

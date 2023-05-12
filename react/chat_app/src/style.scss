@@ -35,6 +35,14 @@ $breakpoint-extra-large: 1200px;
     }
 }
 
+$primaryColor : #676ca9;
+$secondaryColor : #080912;
+$darkGray: #1C1F24;
+$darkViolet: #31323e;
+$grayColor: gray;
+$lightGray: lightgray;
+$whiteColor: white;
+
 .formContainer {
     background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
     height: 100vh;
@@ -128,7 +136,6 @@ $breakpoint-extra-large: 1200px;
             color: #5d5b8d;
             font-size: 12px;
             margin-top: 10px;
-
         }
     }
 }
@@ -143,7 +150,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #c1b7f9;
+    background-color: $primaryColor;
     border-radius: 6px;
 }
 
@@ -153,8 +160,8 @@ body {
 
 
 .home {
-    color: #878687;
-    background-color: #31323e;
+    color: $lightGray;
+    background-color: $darkViolet;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -170,7 +177,7 @@ body {
         .logo {
             font-size: 25px;
             font-weight: 600;
-            color: #E2E5E6;
+            color: $whiteColor;
         }
 
         .user {
@@ -185,11 +192,6 @@ body {
             height: 2.2rem;
             width: 2.2rem;
             object-fit: cover;
-        }
-
-        p {
-            font-size: 22px;
-            font-weight: 600;
         }
 
         img {
@@ -211,8 +213,12 @@ body {
         .search {
             padding: 1.5rem;
 
+            img {
+                display: none;
+            }
+
             .searchForm {
-                outline: 1px solid #727786;
+                outline: 1px solid $primaryColor;
                 padding: 10px;
                 border-radius: 4px;
 
@@ -220,11 +226,11 @@ body {
                     width: 19rem;
                     background-color: transparent;
                     border: none;
-                    color: white;
+                    color: $whiteColor;
                     outline: none;
 
                     &::placeholder {
-                        color: lightgray;
+                        color: $lightGray;
                     }
 
                     @include large {
@@ -252,7 +258,7 @@ body {
             display: flex;
             align-items: center;
             gap: 10px;
-            color: white;
+            color: $whiteColor;
             cursor: pointer;
 
             @include small {
@@ -265,7 +271,7 @@ body {
             }
 
             &:hover {
-                background-color: #1C1F24;
+                background-color: $secondaryColor;
             }
 
             img {
@@ -283,7 +289,7 @@ body {
 
                 p {
                     font-size: 14px;
-                    color: lightgray;
+                    color: $lightGray;
                     margin: 0;
                 }
 
@@ -312,13 +318,15 @@ body {
 .chat {
     border-radius: 12px 0px 0px 0px;
     flex: 3;
-    background-color: #1C1F24;
+    background-color: $darkGray;
     overflow: hidden;
-    @include small{
+
+    @include small {
         border-radius: 12px 12px 0px 0px;
     }
+
     .chatInfo {
-        background-color: black;
+        background-color: $secondaryColor;
         height: 50px;
         display: flex;
         align-items: center;
@@ -374,7 +382,7 @@ body {
             .messageInfo {
                 display: flex;
                 flex-direction: column;
-                color: gray;
+                color: $grayColor;
                 font-weight: 300;
 
                 img {
@@ -401,10 +409,9 @@ body {
                 max-width: 80%;
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
 
                 p {
-                    background-color: #000000;
+                    background-color: $secondaryColor;
                     padding: 10px 20px;
                     border-radius: 0px 10px 10px 10px;
                     max-width: max-content;
@@ -412,6 +419,7 @@ body {
 
                 img {
                     width: 50%;
+                    border-radius: 5px;
                 }
             }
 
@@ -422,7 +430,7 @@ body {
                     align-items: flex-end;
 
                     p {
-                        background-color: #676ca9;
+                        background-color: $primaryColor;
                         color: white;
                         border-radius: 10px 0px 10px 10px;
                     }
@@ -451,7 +459,7 @@ body {
 
         .sendBar {
             overflow: hidden;
-            border: 1px solid #535467;
+            border: 1px solid $primaryColor;
             height: 2.5rem;
             border-radius: 6px;
             display: flex;
@@ -486,7 +494,7 @@ body {
                 }
 
                 button {
-                    background-color: black;
+                    background-color: $secondaryColor;
                     border: none;
                     height: 2.5rem;
                     width: 2.5rem;
@@ -499,4 +507,76 @@ body {
             }
         }
     }
+}
+
+
+//------------ for small devices---------------------
+
+.sidebar_small {
+    flex: 1;
+
+    .search {
+        padding: 1.5rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        img {
+            height: 3rem;
+        }
+
+        .searchForm {
+            outline: 1px solid #727786;
+            padding: 10px;
+            border-radius: 4px;
+
+            input {
+                width: 22.7rem;
+                background-color: transparent;
+                border: none;
+                color: white;
+                outline: none;
+
+                &::placeholder {
+                    color: lightgray;
+                }
+            }
+        }
+    }
+
+    .userChat {
+        margin: 0rem 1.5rem;
+        border-radius: 6px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #1C1F24;
+        }
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .userChatInfo {
+            span {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            p {
+                font-size: 14px;
+                color: lightgray;
+                margin: 0;
+            }
+        }
+    }
+
 }

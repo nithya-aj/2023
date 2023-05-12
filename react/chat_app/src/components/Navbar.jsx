@@ -10,8 +10,7 @@ const Navbar = () => {
       </div>
       <div className="user">
         <img className='avatar' src={img} alt="" />
-        <p>Nithya</p>
-          <img className='logout' src={logout} alt="" />
+        <img className='logout' src={logout} alt="" />
       </div>
     </div>
   )
