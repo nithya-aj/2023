@@ -35,29 +35,31 @@ $breakpoint-extra-large: 1200px;
     }
 }
 
-$primaryColor : #676ca9;
-$secondaryColor : #080912;
-$darkGray: #1C1F24;
-$darkViolet: #31323e;
-$grayColor: gray;
-$lightGray: lightgray;
-$whiteColor: white;
+$ownerMessageColor : #595BD4;
+$messageColor : #080912;
+$secondaryColor: #dfd7d5;
+$primaryColor: #f2efed;
+$grayColor: rgb(73, 64, 64);
+$smallTextColor: rgb(174, 169, 169);
+$textColor: rgba(105, 98, 98, 0.899);
 
 .formContainer {
-    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    background-color: $primaryColor;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 
     .formWrapper {
-        background-color: white;
+        background-color: $secondaryColor;
         padding: 20px 60px;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 10px;
+        border: 1px solid $ownerMessageColor;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
 
         form {
             display: flex;
@@ -150,7 +152,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $primaryColor;
+    background-color: $ownerMessageColor;
     border-radius: 6px;
 }
 
@@ -160,8 +162,8 @@ body {
 
 
 .home {
-    color: $lightGray;
-    background-color: $darkViolet;
+    color: $smallTextColor;
+    background-color: $primaryColor;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -170,6 +172,7 @@ body {
     .navItems {
         margin-left: 1rem;
         margin-right: 1rem;
+        padding: 0.8rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -177,7 +180,7 @@ body {
         .logo {
             font-size: 25px;
             font-weight: 600;
-            color: $whiteColor;
+            color: $textColor;
         }
 
         .user {
@@ -218,7 +221,7 @@ body {
             }
 
             .searchForm {
-                outline: 1px solid $primaryColor;
+                outline: 1px solid $ownerMessageColor;
                 padding: 10px;
                 border-radius: 4px;
 
@@ -226,11 +229,11 @@ body {
                     width: 19rem;
                     background-color: transparent;
                     border: none;
-                    color: $whiteColor;
+                    color: $grayColor;
                     outline: none;
 
                     &::placeholder {
-                        color: $lightGray;
+                        color: $smallTextColor;
                     }
 
                     @include large {
@@ -258,7 +261,7 @@ body {
             display: flex;
             align-items: center;
             gap: 10px;
-            color: $whiteColor;
+            color: $textColor;
             cursor: pointer;
 
             @include small {
@@ -271,7 +274,7 @@ body {
             }
 
             &:hover {
-                background-color: $secondaryColor;
+                background-color: $messageColor;
             }
 
             img {
@@ -289,7 +292,7 @@ body {
 
                 p {
                     font-size: 14px;
-                    color: $lightGray;
+                    color: $smallTextColor;
                     margin: 0;
                 }
 
@@ -318,7 +321,7 @@ body {
 .chat {
     border-radius: 12px 0px 0px 0px;
     flex: 3;
-    background-color: $darkGray;
+    background-color: $secondaryColor;
     overflow: hidden;
 
     @include small {
@@ -326,7 +329,7 @@ body {
     }
 
     .chatInfo {
-        background-color: $secondaryColor;
+        background-color: $messageColor;
         height: 50px;
         display: flex;
         align-items: center;
@@ -411,7 +414,7 @@ body {
                 flex-direction: column;
 
                 p {
-                    background-color: $secondaryColor;
+                    background-color: $messageColor;
                     padding: 10px 20px;
                     border-radius: 0px 10px 10px 10px;
                     max-width: max-content;
@@ -430,8 +433,8 @@ body {
                     align-items: flex-end;
 
                     p {
-                        background-color: $primaryColor;
-                        color: white;
+                        background-color: $ownerMessageColor;
+                        color: $primaryColor;
                         border-radius: 10px 0px 10px 10px;
                     }
                 }
@@ -459,7 +462,7 @@ body {
 
         .sendBar {
             overflow: hidden;
-            border: 1px solid $primaryColor;
+            border: 1px solid $ownerMessageColor;
             height: 2.5rem;
             border-radius: 6px;
             display: flex;
@@ -473,13 +476,13 @@ body {
             input {
                 background-color: transparent;
                 border: none;
-                color: white;
+                color: $messageColor;
                 outline: none;
                 width: 90%;
                 margin: 0px 10px;
 
                 &::placeholder {
-                    color: lightgray;
+                    color: $grayColor;
                 }
             }
 
@@ -494,7 +497,7 @@ body {
                 }
 
                 button {
-                    background-color: $secondaryColor;
+                    background-color: $messageColor;
                     border: none;
                     height: 2.5rem;
                     width: 2.5rem;
@@ -526,7 +529,7 @@ body {
         }
 
         .searchForm {
-            outline: 1px solid #727786;
+            outline: 1px solid $ownerMessageColor;
             padding: 10px;
             border-radius: 4px;
 
@@ -534,11 +537,11 @@ body {
                 width: 22.7rem;
                 background-color: transparent;
                 border: none;
-                color: white;
+                color: $grayColor;
                 outline: none;
 
                 &::placeholder {
-                    color: lightgray;
+                    color: smallTextColor;
                 }
             }
         }
@@ -551,11 +554,11 @@ body {
         display: flex;
         align-items: center;
         gap: 10px;
-        color: white;
+        color: $textColor;
         cursor: pointer;
 
         &:hover {
-            background-color: #1C1F24;
+            background-color: $messageColor;
         }
 
         img {
@@ -573,7 +576,7 @@ body {
 
             p {
                 font-size: 14px;
-                color: lightgray;
+                color: smallTextColor;
                 margin: 0;
             }
         }
