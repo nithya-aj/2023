@@ -110,7 +110,7 @@ $textColor: rgba(105, 98, 98, 0.899);
         .logo {
             display: inline-flex;
             font-family: "Impact", sans-serif;
-            background: url("./images/img6.jpeg");
+            background: url("./images/logoImg.jpg");
             font-size: 3rem;
             background-clip: text;
             -webkit-background-clip: text;
@@ -214,14 +214,14 @@ body {
         flex: 1;
 
         .search {
-            padding: 1.5rem;
 
-            img {
+            .back_arrow {
                 display: none;
             }
 
             .searchForm {
                 outline: 1px solid $ownerMessageColor;
+                margin: 1rem;
                 padding: 10px;
                 border-radius: 4px;
 
