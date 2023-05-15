@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCOre5EB8FGIhP31L5IKU6jDXI1fLhs4SY",
-    authDomain: "chat-d5d8a.firebaseapp.com",
-    projectId: "chat-d5d8a",
-    storageBucket: "chat-d5d8a.appspot.com",
-    messagingSenderId: "182124588753",
-    appId: "1:182124588753:web:4494a1da009bc0eb841ff0"
+    apiKey: "AIzaSyDwHTORBfrV1LxyaVQW3oX5oo8wtjL74HE",
+    authDomain: "holo-82229.firebaseapp.com",
+    projectId: "holo-82229",
+    storageBucket: "holo-82229.appspot.com",
+    messagingSenderId: "396102990065",
+    appId: "1:396102990065:web:e04f63b325965f02bfd150"
 };
 
 // Initialize Firebase
