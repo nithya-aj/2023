@@ -17,6 +17,11 @@ const Register = () => {
         const password = e.target[2].value
         const file = e.target[3].files[0]
 
+        if (!name || !email || !password || !file) {
+            setErr('Please fill in all the fields.')
+            return
+        }
+
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password)
             const storageRef = ref(storage, name);
@@ -24,7 +29,7 @@ const Register = () => {
 
             uploadTask.on(
                 (err) => {
-                    setErr(true)
+                    setErr('Error uploading the file.')
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -40,13 +45,23 @@ const Register = () => {
                         })
                         await setDoc(doc(db, 'userChats', res.user.uid), {})
                         navigate('/')
-
                     })
                 }
             )
 
         } catch (err) {
-            setErr(true)
+            // Handle registration errors
+            if (err.code === 'auth/email-already-in-use') {
+                setErr('The email address is already in use. Please use a different email.');
+            } else if (err.code === 'auth/invalid-email') {
+                setErr('Invalid email. Please enter a valid email address.');
+            } else if (err.code === 'auth/weak-password') {
+                setErr('The password is too weak. Please choose a stronger password.');
+            } else if (err.code === 'storage/object-not-found') {
+                setErr('file was not found or uploaded successfully.');
+            } else {
+                setErr('An error occurred during registration. Please try again later.');
+            }
         }
     }
 
@@ -65,7 +80,7 @@ const Register = () => {
                         <img src={img} alt="" /><span>Add an avatar</span>
                     </label>
                     <button>Sign Up</button>
-                    {err && <span style={{ color: 'red' }}>Something went wrong</span>}
+                    {err && <span className='err' style={{ color: 'red' }}>{err}</span>}
                 </form>
                 <p>You do have an account? <Link to="/login" style={{ textDecoration: 'none', color: 'darkblue' }}>Log in</Link></p>
             </div>

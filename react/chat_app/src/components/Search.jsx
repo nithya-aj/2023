@@ -4,6 +4,7 @@ import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updat
 import { db } from '../firebase'
 import { AuthContext } from '../context/AuthContext'
 import { ChatContext } from '../context/ChatContext';
+import clear from '../images/clear.svg'
 
 const Search = () => {
   const [userName, setUserName] = useState("")
@@ -14,27 +15,41 @@ const Search = () => {
   const { dispatch } = useContext(ChatContext);
 
   const handleSearch = async () => {
-    console.log('handleSearch');
-    const q = query(
-      collection(db, "users"),
-      where("name", "==", userName)
-    );
+    const q = query(collection(db, "users"));
 
     try {
-      console.log('handleSearch try block');
       const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setUser(doc.data());
-        console.log(user, 'user')
-      });
+      if (querySnapshot.empty) {
+        setErr(true); // user not found
+        setUser(null); // reset the user state
+      } else {
+        const foundUser = querySnapshot.docs.find((doc) => {
+          const user = doc.data();
+          return user.name.toLowerCase() === userName.toLowerCase();
+        });
+
+        if (foundUser) {
+          const user = foundUser.data();
+          if (user.uid === currentUser.uid) {
+            setErr(true); // can't chat with yourself
+            setUser(null); // reset the user state
+          } else {
+            setUser(user);
+            setErr(false);
+          }
+        } else {
+          setErr(true); // user not found
+          setUser(null); // reset the user state
+        }
+      }
     } catch (err) {
-      console.log('handleSearch');
       setErr(true);
     }
-  }
+  };
+
+
 
   const handleKey = (e) => {
-    console.log('handleKey');
     e.code === "Enter" && handleSearch();
   };
 
@@ -73,11 +88,15 @@ const Search = () => {
         });
       }
     } catch (err) { }
-    console.log('is error happened?');
     dispatch({ type: "CHANGE_USER", payload: user });
     setUser(null);
     setUserName("")
   };
+
+  const handleClear = () => {
+    setUserName("")
+    setErr(false)
+  }
 
   console.log(user);
   return (
@@ -87,8 +106,9 @@ const Search = () => {
       </div>
       <div className="searchForm">
         <input type="text" placeholder='Search users here...' onKeyDown={handleKey} onChange={e => setUserName(e.target.value)} value={userName} />
+        <img src={clear} alt="" onClick={handleClear} />
       </div>
-      {err && <span style={{ color: 'red' }}>User not found!</span>}
+      {err && <span style={{ color: 'red', paddingLeft: '1rem' }}>User not found!</span>}
       {user &&
         (<div className="userChat" onClick={handleSelect} >
           <img src={user.photoURL} alt="" />

@@ -6,6 +6,8 @@ import { v4 as uuid } from "uuid"
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { ChatContext } from '../context/ChatContext';
 import { AuthContext } from '../context/AuthContext';
+import { BsImageFill } from "react-icons/bs"
+import { BiSend } from "react-icons/bi";
 
 const Input = () => {
 
@@ -72,13 +74,12 @@ const Input = () => {
       <div className='sendBar'>
         <input type="text" placeholder='Type something...' onChange={e => setText(e.target.value)} value={text || ""} />
         <div className='send'>
-          <Icon className='icon' icon="ion:attach" color="#595bd4" />
           <input type="file" style={{ display: 'none' }} id='file' onChange={e => setImage(e.target.files[0])} />
           <label htmlFor="file">
-            <Icon className='icon' icon="ion:image" color="#595bd4" />
+            <BsImageFill className='InputIcon'/>
           </label>
           <button onClick={handleSend}>
-            <Icon className='icon' icon="fa:send" color="#595bd4" />
+            <BiSend className='sendBtn' />
           </button>
         </div>
       </div>
