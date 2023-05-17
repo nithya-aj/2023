@@ -52,7 +52,7 @@ $lightColor: rgb(210, 210, 210);
     justify-content: center;
 
     .formWrapper {
-        background-color: $secondaryColor;
+        background-color: $lightColor;
         padding: 20px 60px;
         border-radius: 10px;
         display: flex;
@@ -201,6 +201,22 @@ body {
             width: 2.2rem;
             object-fit: cover;
         }
+        .avatar[title] {
+            position: relative;
+          }
+          
+          .avatar[title]:hover::after {
+            content: attr(title);
+            background-color: #000;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+          }
 
         .logout {
             cursor: pointer;

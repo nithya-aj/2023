@@ -94,6 +94,7 @@ const Search = () => {
   };
 
   const handleClear = () => {
+    setUser(null);
     setUserName("")
     setErr(false)
   }

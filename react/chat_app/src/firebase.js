@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDwHTORBfrV1LxyaVQW3oX5oo8wtjL74HE",
-    authDomain: "holo-82229.firebaseapp.com",
-    projectId: "holo-82229",
-    storageBucket: "holo-82229.appspot.com",
-    messagingSenderId: "396102990065",
-    appId: "1:396102990065:web:e04f63b325965f02bfd150"
+    apiKey: "AIzaSyC0l3nhNEf3YzvXcEoHovbKAowCqjuatpo",
+    authDomain: "holo-37fd2.firebaseapp.com",
+    projectId: "holo-37fd2",
+    storageBucket: "holo-37fd2.appspot.com",
+    messagingSenderId: "542550549541",
+    appId: "1:542550549541:web:71d0ab1d984a179f260bcc"
 };
 
 // Initialize Firebase

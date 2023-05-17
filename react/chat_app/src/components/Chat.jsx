@@ -12,7 +12,7 @@ import { CgMoreVerticalAlt } from "react-icons/cg";
 
 const Chat = () => {
   const { data } = useContext(ChatContext)
-  console.log(data,'dataaaaaaa');
+  console.log(data,'data from chat');
   return (
     <div className="chat">
       {data.chatId !== "null" ? (
