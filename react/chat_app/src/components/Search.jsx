@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import arrow from '../images/arrow-back.svg'
 import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore";
 import { db } from '../firebase'
 import { AuthContext } from '../context/AuthContext'
@@ -102,9 +101,6 @@ const Search = () => {
   console.log(user);
   return (
     <div className='search'>
-      <div className="back_arrow">
-        <img src={arrow} alt="" />
-      </div>
       <div className="searchForm">
         <input type="text" placeholder='Search users here...' onKeyDown={handleKey} onChange={e => setUserName(e.target.value)} value={userName} />
         <img src={clear} alt="" onClick={handleClear} />

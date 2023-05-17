@@ -52,10 +52,10 @@ const Message = ({ message }) => {
                     <span>{formattedDate}</span>
                 </div>
                 <div className="messageContent">
-                    {message.text ? (<p>{message.text}</p>) : " "}
                     {message.img &&
                         <img src={message.img} alt="" />
                     }
+                    {message.text ? (<p>{message.text}</p>) : " "}
                 </div>
             </div>
         </>

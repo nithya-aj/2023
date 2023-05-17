@@ -202,23 +202,6 @@ body {
             object-fit: cover;
         }
 
-        .avatar[title] {
-            position: relative;
-        }
-
-        .avatar[title]:hover::after {
-            content: attr(title);
-            background-color: #000;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-        }
-
         .logout {
             cursor: pointer;
             height: 1.5rem;
@@ -244,11 +227,18 @@ body {
     .sidebar {
         flex: 1;
 
+        @include small {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 0;
+        }
+
         .search {
             margin-top: -0.2rem;
 
-            .back_arrow {
-                display: none;
+            @include small {
+                text-align: center;
             }
 
             .searchForm {
@@ -304,8 +294,10 @@ body {
             cursor: pointer;
 
             @include small {
-                margin: 0rem;
-                padding: 4px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex: 0;
             }
 
             @include medium {
@@ -348,11 +340,11 @@ body {
                         font-size: 11px;
                     }
                 }
-            }
-        }
 
-        @include small {
-            display: none;
+                @include small {
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -383,18 +375,8 @@ body {
             display: flex;
             align-items: center;
             gap: 1rem;
-
-            img {
-                cursor: pointer;
-                height: 1.5rem;
-
-                @include extra-small {
-                    display: none;
-                }
-
-                @include small {
-                    display: block;
-                }
+            span{
+                color: $lightColor;
             }
         }
 
@@ -466,8 +448,9 @@ body {
 
                 img {
                     width: 40%;
-                    border-radius: 12px 0px 12px 12px;
+                    border-radius: 0px 12px 12px 12px;
                     border: 4px solid $ownerMessageColor;
+                    margin-top: 0.5rem;
                 }
             }
 
@@ -549,84 +532,4 @@ body {
             }
         }
     }
-}
-
-
-//------------ for small devices---------------------
-
-.sidebar_small {
-    flex: 1;
-
-    .search {
-        padding: 1.5rem;
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-
-        img {
-            height: 3rem;
-        }
-
-        .searchForm {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            outline: 1px solid $ownerMessageColor;
-            padding: 10px;
-            border-radius: 4px;
-
-            input {
-                width: 22.7rem;
-                background-color: transparent;
-                border: none;
-                color: $lightColor;
-                outline: none;
-
-                &::placeholder {
-                    color: $smallTextColor;
-                }
-            }
-
-            img {
-                height: 1rem;
-                cursor: pointer;
-            }
-        }
-    }
-
-    .userChat {
-        margin: 0rem 1.5rem;
-        border-radius: 6px;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: $textColor;
-        cursor: pointer;
-
-        &:hover {
-            background-color: $messageColor;
-        }
-
-        img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .userChatInfo {
-            span {
-                font-size: 18px;
-                font-weight: 500;
-            }
-
-            p {
-                font-size: 14px;
-                color: smallTextColor;
-                margin: 0;
-            }
-        }
-    }
-
 }

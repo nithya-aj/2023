@@ -1,7 +1,4 @@
 import React, { useContext } from 'react'
-import videoCall from '../images/videoCall.svg'
-import addUser from '../images/addUser.svg'
-import settings from '../images/settings.svg'
 import arrow from '../images/arrow-back.svg'
 import Messages from './Messages'
 import Input from './Input'
@@ -12,14 +9,14 @@ import { CgMoreVerticalAlt } from "react-icons/cg";
 
 const Chat = () => {
   const { data } = useContext(ChatContext)
-  console.log(data,'data from chat');
+  console.log(data, 'data from chat');
+
   return (
     <div className="chat">
       {data.chatId !== "null" ? (
         <>
           <div className="chatInfo">
-            <div className="rightMenu">
-              <img src={arrow} alt="" />
+            <div className="rightMenu" >
               <span>{data.user?.displayName}</span>
             </div>
             <div className="chatIcons">
