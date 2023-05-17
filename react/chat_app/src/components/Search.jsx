@@ -25,7 +25,7 @@ const Search = () => {
       } else {
         const foundUser = querySnapshot.docs.find((doc) => {
           const user = doc.data();
-          return user.name.toLowerCase() === userName.toLowerCase();
+          return user.displayName.toLowerCase() === userName.toLowerCase();
         });
 
         if (foundUser) {
@@ -72,7 +72,7 @@ const Search = () => {
         await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
-            name: user.name,
+            displayName: user.displayName,
             photoURL: user.photoURL,
           },
           [combinedId + ".date"]: serverTimestamp(),
@@ -81,7 +81,7 @@ const Search = () => {
         await updateDoc(doc(db, "userChats", user.uid), {
           [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
-            name: currentUser.name,
+            displayName: currentUser.displayName,
             photoURL: currentUser.photoURL,
           },
           [combinedId + ".date"]: serverTimestamp(),
@@ -114,7 +114,7 @@ const Search = () => {
         (<div className="userChat" onClick={handleSelect} >
           <img src={user.photoURL} alt="" />
           <div className="userChatInfo">
-            <span>{user.name}</span>
+            <span>{user.displayName}</span>
           </div>
         </div>)}
     </div>

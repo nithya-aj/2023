@@ -20,7 +20,7 @@ const Chat = () => {
           <div className="chatInfo">
             <div className="rightMenu">
               <img src={arrow} alt="" />
-              <span>{data.user?.name}</span>
+              <span>{data.user?.displayName}</span>
             </div>
             <div className="chatIcons">
               <RiVideoChatFill className="icons" />

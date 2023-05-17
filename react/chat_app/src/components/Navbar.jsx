@@ -12,10 +12,17 @@ const Navbar = () => {
 
   useEffect(() => {
     tippy(avatarRef.current, {
-      content: currentUser.email,
+      content: `
+        <div>
+          <p>Name: ${currentUser.displayName}</p>
+          <p>Email: ${currentUser.email}</p>
+        </div>
+      `,
+      allowHTML: true,
     });
-  }, []);
-console.log(currentUser,'currentUser');
+  }, [currentUser]);
+  
+  console.log(currentUser, 'currentUser');
   return (
     <div className='navItems'>
       <div className="logo">
