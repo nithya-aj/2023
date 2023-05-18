@@ -4,12 +4,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCa_QY5PluB5hX6lQFCf6h7fFoAVvZT0ew",
-    authDomain: "holo-1c46a.firebaseapp.com",
-    projectId: "holo-1c46a",
-    storageBucket: "holo-1c46a.appspot.com",
-    messagingSenderId: "938563997284",
-    appId: "1:938563997284:web:308acbc43148468e5a1971"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+
 };
 
 // Initialize Firebase
